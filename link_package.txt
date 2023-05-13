@@ -1,0 +1,28 @@
+"@reduxjs/toolkit" - "^1.9.1",->https://redux-toolkit.js.org/tutorials/quick-start
+"axios": "^1.2.2",->https://www.npmjs.com/package/axios
+"dayjs": "^1.11.7",->https://www.npmjs.com/package/dayjs
+// "react": "^18.2.0",
+"react-circular-progressbar": "^2.1.0",->https://www.npmjs.com/package/react-circular-progressbar
+// "react-dom": "^18.2.0",
+"react-icons": "^4.7.1",->https://react-icons.github.io/react-icons/
+"react-infinite-scroll-component": "^6.1.0",->https://www.npmjs.com/package/react-infinite-scroll-component
+"react-lazy-load-image-component": "^1.5.6",->https://www.npmjs.com/package/react-lazy-load-image-component
+"react-player": "^2.11.0",->https://www.npmjs.com/package/react-player
+"react-redux": "^8.0.5",->https://react-redux.js.org/introduction/getting-started
+"react-router-dom": "^6.6.2",->https://www.npmjs.com/package/react-router-dom
+"react-select": "^5.7.0",->https://www.npmjs.com/package/react-select
+"sass": "^1.57.1"->https://www.npmjs.com/package/sass
+
+npm i axios
+npm i dayjs
+npm i react-circular-progressbar
+npm install react-icons --save
+npm i react-infinite-scroll-component
+npm i react-lazy-load-image-component   npm i --save react-lazy-load-image-component    npm install -D @types/react-lazy-load-image-component
+npm i react-player
+npm install react-redux
+npm install @reduxjs/toolkit
+npm i react-router-dom
+npm i react-select
+npm i sass
+
