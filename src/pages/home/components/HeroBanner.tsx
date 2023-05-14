@@ -60,7 +60,7 @@ const HeroBanner = () => {
                             placeholder="Search for a movie or tv show...."
                             onChange={(e) => setQuery(e.target.value)}
                             onKeyUp={searchQueryHandler}
-                            className='w-[calc(100% - 100px)] h-14 outline-0 border-0 rounded-input-search md:w-[calc(100% - 150px)] md:h-16 md:text-xl md:py-0 md:px-8 text-gray-900'
+                            className='w-[calc(100%-100px)] h-14 outline-0 border-0 rounded-input-search md:w-[calc(100%-150px)] md:h-16 md:text-xl md:py-0 md:px-8 text-gray-900'
                         />
                         <button className='flex justify-center items-center w-16 h-14 bg-button-search text-white outline-0 border-0 rounded-button-search text-base cursor-pointer md:w-28 md:h-16 md:text-lg'>
                             <BiSearchAlt className="text-3xl md:text-5xl" />

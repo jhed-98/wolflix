@@ -1,0 +1,273 @@
+@import "../mixins.scss";
+
+.detailsBanner {
+    @apply w-full pt-[100px] mb-[50px];
+    // width: 100%;
+    background-color: var(--black);
+    // padding-top: 100px;
+    // margin-bottom: 50px;
+
+    @include md {
+        @apply mb-0 pt-[120px] min-h-[700px];
+        /*  margin-bottom: 0;
+        padding-top: 120px;
+        min-height: 700px; */
+    }
+
+    .backdrop-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.1;
+        overflow: hidden;
+
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .opacity-layer {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(180deg,
+                rgba(4, 21, 45, 0) 0%,
+                #04152d 79.17%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .content {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+
+        .left {
+            flex-shrink: 0;
+
+            .posterImg {
+                width: 100%;
+                display: block;
+                border-radius: 12px;
+
+                @include md {
+                    max-width: 350px;
+                }
+            }
+        }
+
+        .right {
+            color: white;
+
+            .title {
+                font-size: 28px;
+                line-height: 40px;
+
+                @include md {
+                    font-size: 34px;
+                    line-height: 44px;
+                }
+            }
+
+            .subtitle {
+                font-size: 16px;
+                line-height: 24px;
+                margin-bottom: 15px;
+                font-style: italic;
+                opacity: 0.5;
+
+                @include md {
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+            }
+
+            .genres {
+                @apply mb-6 flex items-center gap-2 flex-wrap flex-row;
+
+                .genre {
+                    @apply bg-red-900 rounded-md py-1 px-2 text-white whitespace-nowrap;
+
+                    @include md {
+                        @apply text-base;
+                    }
+                }
+            }
+
+            .overview {
+                margin-bottom: 25px;
+
+                .heading {
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+
+                .description {
+                    line-height: 24px;
+
+                    @include md {
+                        padding-right: 100px;
+                    }
+                }
+            }
+
+            .circleRating {
+                @apply max-w-[70px] bg-gray-900 relative top-8 shrink-0 w-full -translate-y-[1.85rem];
+
+                @include md {
+                    @apply max-w-[90px];
+                }
+
+                .CircularProgressbar-text {
+                    @apply text-4xl font-bold fill-black -translate-x-6 translate-y-2;
+                    fill: white;
+                }
+            }
+
+            .playbtn {
+                @apply flex items-center gap-6 cursor-pointer;
+
+                svg {
+                    width: 60px;
+
+                    @include md {
+                        width: 80px;
+                    }
+                }
+
+                .text {
+                    font-size: 20px;
+                    transition: all 0.7s ease-in-out;
+                }
+
+                .triangle {
+                    stroke-dasharray: 240;
+                    stroke-dashoffset: 480;
+                    stroke: white;
+                    transform: translateY(0);
+                    transition: all 0.7s ease-in-out;
+                }
+
+                .circle {
+                    stroke: white;
+                    stroke-dasharray: 650;
+                    stroke-dashoffset: 1300;
+                    transition: all 0.5s ease-in-out;
+                }
+
+                &:hover {
+                    .text {
+                        @apply text-red-600;
+                    }
+
+                    .triangle {
+                        @apply stroke-red-600 opacity-100;
+                        stroke-dashoffset: 0;
+                        animation: trailorPlay 0.7s ease-in-out;
+                    }
+
+                    .circle {
+                        @apply stroke-red-600;
+                        stroke-dashoffset: 0;
+                    }
+                }
+            }
+
+            .row {
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                margin-bottom: 25px;
+            }
+
+            .info {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 15px 0;
+                display: flex;
+
+                .infoItem {
+                    margin-right: 10px;
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+
+                .text {
+                    margin-right: 10px;
+                    opacity: 0.5;
+                    line-height: 24px;
+
+                    &.bold {
+                        font-weight: 600;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .detailsBannerSkeleton {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+
+        .contentWrapper {
+            display: flex;
+            gap: 50px;
+        }
+
+        .left {
+            flex-shrink: 0;
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            aspect-ratio: 1/1.5;
+
+            @include md {
+                max-width: 350px;
+            }
+        }
+
+        .right {
+            width: 100%;
+
+            .row {
+                width: 100%;
+                height: 25px;
+                margin-bottom: 20px;
+                border-radius: 50px;
+
+                &:nth-child(2) {
+                    width: 75%;
+                    margin-bottom: 50px;
+                }
+
+                &:nth-child(5) {
+                    width: 50%;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}

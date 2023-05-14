@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export const homeSlice = createSlice({
     name: "home",
@@ -8,7 +8,10 @@ export const homeSlice = createSlice({
             poster: '',
             profile: '',
         },
-        genres: {},
+        genres: {
+            id: '',
+            name: '',
+        },
     },
     reducers: {
         // Methods
