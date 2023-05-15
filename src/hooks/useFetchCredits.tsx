@@ -17,10 +17,10 @@ const useFetchCredits = (url: string) => {
             .then((res) => {
                 setLoading(false);
                 setData(res);
-                console.log('CREDITS', res);
+                // console.log('CREDITS', res);
 
             })
-            .catch((err) => {
+            .catch(() => {
                 setLoading(false);
                 setError("Something went wrong!");
             });

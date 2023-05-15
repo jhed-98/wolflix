@@ -17,9 +17,9 @@ const useFetchVideos = (url: string) => {
             .then((res) => {
                 setLoading(false);
                 setData(res);
-                console.log('VIDOS', res);
+                // console.log('VIDOS', res);
             })
-            .catch((err) => {
+            .catch(() => {
                 setLoading(false);
                 setError("Something went wrong!");
             });

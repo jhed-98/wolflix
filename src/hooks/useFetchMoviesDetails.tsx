@@ -17,10 +17,10 @@ const useFetchMoviesDetails = (url: string) => {
             .then((res) => {
                 setLoading(false);
                 setData(res);
-                console.log('MOVIES DETAILS', res);
+                // console.log('MOVIES DETAILS', res);
 
             })
-            .catch((err) => {
+            .catch(() => {
                 setLoading(false);
                 setError("Something went wrong!");
             });

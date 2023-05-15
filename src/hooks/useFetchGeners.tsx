@@ -1,7 +1,7 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchDataFromApi } from "../utils/api";
-import { FetchAllGenres, FetchAllImgs } from "../interface/type";
+import { FetchAllGenres } from "../interface/type";
 const useFetchGeners = (url: string) => {
     //Guarda los datos del la consulta en un interface
     const [data, setData] = useState<FetchAllGenres | null>(null);
@@ -17,10 +17,10 @@ const useFetchGeners = (url: string) => {
             .then((res) => {
                 setLoading(false);
                 setData(res);
-                console.log('IMAGES', res);
+                // console.log('IMAGES', res);
 
             })
-            .catch((err) => {
+            .catch(() => {
                 setLoading(false);
                 setError("Something went wrong!");
             });

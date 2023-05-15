@@ -17,10 +17,10 @@ const useFetch = (url: string) => {
             .then((res) => {
                 setLoading(false);
                 setData(res);
-                console.log('IMAGES', res);
+                // console.log('IMAGES', res);
 
             })
-            .catch((err) => {
+            .catch(() => {
                 setLoading(false);
                 setError("Something went wrong!");
             });
