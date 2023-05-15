@@ -1,9 +1,10 @@
-import React from 'react'
+// import React from 'react'
 import Carousel from '../../../components/Carousel'
 import useFetchMovies from '../../../hooks/useFetchMovies';
 
 const Similar = ({ mediaType, id }: any) => {
-    const { data, loading, error }: any = useFetchMovies(`/${mediaType}/${id}/similar`);
+    // const { data, loading, error }: any = useFetchMovies(`/${mediaType}/${id}/similar`);
+    const { data, loading }: any = useFetchMovies(`/${mediaType}/${id}/similar`);
 
     const title = mediaType === "tv" ? "Similar TV Shows" : "Similar Movies";
 

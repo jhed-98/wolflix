@@ -1,7 +1,7 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchDataFromApi } from "../utils/api";
-import { FetchAllMovies, MovieInterface } from "../interface/type";
+import { MovieInterface } from "../interface/type";
 const useFetchMoviesDetails = (url: string) => {
     //Guarda los datos del la consulta en un interface
     const [data, setData] = useState<MovieInterface | null>(null);
