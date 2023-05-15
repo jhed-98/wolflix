@@ -1,4 +1,3 @@
-import React from 'react'
 import DetailsBanner from './components/DetailsBanner'
 import Cast from './components/Cast'
 import VideosSection from './components/VideosSection'

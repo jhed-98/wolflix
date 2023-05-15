@@ -14,7 +14,6 @@ import dayjs from 'dayjs';
 import Img from './lazyLoadImage';
 import CircleRating from './CircleRating';
 import Genres from './Genres';
-import ContentWrapper from './ContentWrapper';
 
 interface CarousleProps {
     data: MovieInterface[],

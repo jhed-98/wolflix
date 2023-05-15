@@ -2,8 +2,6 @@ import { useState } from 'react'
 import useFetchMovies from '../../../hooks/useFetchMovies';
 import SwitchTabs from '../../../components/SwitchTabs';
 import Carousel from '../../../components/Carousel';
-import ContentWrapper from '../../../components/ContentWrapper';
-
 const TopRated = () => {
     const [endpoint, setEndpoint] = useState("movie");
 

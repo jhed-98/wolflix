@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/home/HomePage';
 import DetailsPage from '../pages/details/DetailsPage';

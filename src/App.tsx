@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './store/store';
 import { getApiConfiguration, getGenres } from './store/homeSlice';
 import { GenreInterface, FetchAllGenres } from './interface/type';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import AppRoute from "./route/AppRoute";
 
 function App() {

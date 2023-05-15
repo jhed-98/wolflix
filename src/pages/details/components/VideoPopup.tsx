@@ -1,5 +1,4 @@
-import React from 'react'
-import ReactPlayer from 'react-player/youtube';
+// import ReactPlayer from 'react-player/youtube';
 import { AiOutlineClose } from 'react-icons/ai'
 
 const VideoPopup = ({ show, setShow, videoId, setVideoId }: any) => {

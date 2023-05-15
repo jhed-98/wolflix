@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react'
-import ContentWrapper from '../../components/ContentWrapper';
 import { useParams } from 'react-router-dom';
 import { fetchDataFromApi } from '../../utils/api';
 import Spinner from '../../components/Spinner';

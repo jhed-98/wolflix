@@ -1,4 +1,3 @@
-import React from 'react'
 import useFetchMovies from '../../../hooks/useFetchMovies';
 import Carousel from '../../../components/Carousel';
 
