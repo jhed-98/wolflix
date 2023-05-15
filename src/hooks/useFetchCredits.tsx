@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchDataFromApi } from "../utils/api";
 import { FetchAllCredits } from "../interface/type";
 const useFetchCredits = (url: string) => {
