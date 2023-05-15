@@ -14,19 +14,23 @@ const SwitchTabs = ({ data, onTabChange }: any) => {
 
 
     return (
-        <div className="switchingTabs h-10 bg-white rounded-3xl p-2">
-            <div className="tabItems flex items-center h-6 relative">
+        // switchingTabs
+        <div className="h-[34px] bg-white rounded-3xl p-[2px]">
+            {/* tabItems */}
+            <div className="flex items-center h-[30px] relative">
                 {data.map((tab: number, index: number) => (
+                    // tabItem  active
                     <span
                         key={index}
-                        className={`tabItem ${selectedTab === index ? "active" : ""
+                        className={`h-full flex  items-center justify-center w-[100px] text-gray-900 text-sm relative z-[1] cursor-pointer transition-colors ease duration-300 ${selectedTab === index ? "text-white" : ""
                             }`}
                         onClick={() => activeTab(tab, index)}
                     >
                         {tab}
                     </span>
                 ))}
-                <span className="movingBg h-8 w-24 rounded-2xl absolute left-0 bg-trending-tabs" style={{ left }} />
+                {/* movingBg */}
+                <span className=" h-[30px] w-[100px] rounded-2xl absolute left-0 bg-trending-tabs transition-colors ease-in duration-300" style={{ left }} />
             </div>
         </div>
     )

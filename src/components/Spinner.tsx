@@ -1,15 +1,17 @@
 import React from 'react'
-import "..//assets/scss/components/spinner.scss"
 
 interface SpinnerProps {
     initial?: boolean
 }
 const Spinner: React.FC<SpinnerProps> = ({ initial }) => {
     return (
-        <div className={`loadingSpinner ${initial ? "initial" : ""}`}>
-            <svg className="spinner" viewBox="0 0 50 50">
+        // loadingSpinner   initial
+        <div className={`loadingSpinner w-full relative flex items-center justify-center ${initial ? "h-[700px]" : "h-36"}`}>
+            {/* spinner */}
+            <svg className="spinner z-[2] w-14 h-14 animate-rotate" viewBox="0 0 50 50">
+                {/* path */}
                 <circle
-                    className="path"
+                    className="path text-red-600 stroke animation-dash stroke-current"
                     cx="25"
                     cy="25"
                     r="20"

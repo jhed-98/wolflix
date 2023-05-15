@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { TbSearch, TbSearchOff } from "react-icons/tb";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
-import logo from "../assets/movix-logo.svg";
+import logo from "../assets/wolflix-logo.svg";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
@@ -77,9 +77,9 @@ const Header = () => {
 
     return (
         <header className={`header fixed translate-y-0 w-full h-16 z-20 flex items-center  ${mobileMenu ? "mobileView bg-gray-800" : ""} ${show}`}>
-            <div className='ContentWrapper flex justify-between items-center w-full'>
+            <div className='ContentWrapper flex justify-between items-center w-full px-4 md:px-10'>
                 <div className="logo cursor-pointer" onClick={() => navigate("/")}>
-                    <img src={logo} alt="" className='h-12' />
+                    <img src={logo} alt="" className='h-10' />
                 </div>
                 <ul className={`menuItems ${mobileMenu ? "flex absolute top-16 left-0 bg-gray-800 flex-col w-full py-5 px-0 border-t-2 border-gray-950 animate-mobile-menu" : "list-none hidden items-center md:flex"}`}>
                     <li

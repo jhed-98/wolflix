@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./assets/scss/home.css";
+// @import "./assets/scss/home.css";
+@import "./mixins.scss";
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -42,17 +43,10 @@ body {
 }
 
 .skeleton {
-  position: relative;
-  overflow: hidden;
-  background-color: #0a2955;
+  @apply relative overflow-hidden bg-red-600 opacity-60;
 
   &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform: translateX(-100%);
+    @apply absolute top-0 ring-0 bottom-0 left-0 -translate-x-full;
     background-image: linear-gradient(90deg,
         rgba(#193763, 0) 0,
         rgba(#193763, 0.2) 20%,
@@ -71,4 +65,352 @@ body {
 
 .contentWrapper {
   @apply w-full max-w-7xl my-0 mx-auto px-5;
+}
+
+// carousel poster
+.posterBlock {
+  .lazy-load-image-background {
+    @apply absolute top-0 left-0 w-full h-full rounded-xl overflow-hidden;
+
+    img {
+      @apply w-full h-full object-cover object-center;
+    }
+  }
+
+  .circleRating {
+    @apply w-12 h-12 relative top-8 bg-white shrink-0 rounded-full;
+
+    @include md {
+      @apply w-14 h-14;
+    }
+
+    .CircularProgressbar-text {
+      @apply text-4xl font-bold fill-black -translate-x-7 translate-y-3;
+      fill: black;
+    }
+  }
+
+  .genres {
+    @apply relative hidden items-center gap-1 flex-wrap flex-row;
+
+    @include md {
+      @apply justify-end flex;
+    }
+
+    .genre {
+      @apply bg-red-600 rounded-md py-1 px-2 text-white whitespace-nowrap;
+
+      @include md {
+        @apply text-base;
+      }
+    }
+  }
+}
+
+// explore filters
+.filters {
+  @apply flex gap-3 flex-col;
+
+  @include md {
+    @apply flex-row;
+  }
+
+  .react-select-container {
+    &.genresDD {
+      @apply w-full;
+
+      @include md {
+        max-width: 500px;
+        min-width: 250px;
+      }
+    }
+
+    &.sortbyDD {
+      @apply w-full shrink-0;
+
+      @include md {
+        width: 250px;
+      }
+    }
+
+    .react-select__control {
+      @apply border-0 outline-0 shadow-none bg-red-600 rounded-2xl cursor-pointer;
+
+      .react-select__value-container {
+
+        .react-select__placeholder,
+        .react-select__input-container {
+          @apply text-white my-0 mx-3;
+        }
+      }
+
+      .react-select__single-value {
+        @apply text-white;
+      }
+
+      .react-select__multi-value {
+        @apply bg-red-800 rounded-xl;
+
+        .react-select__multi-value__label {
+          @apply text-white;
+        }
+
+        .react-select__multi-value__remove {
+          @apply bg-transparent text-white cursor-pointer;
+
+          &:hover {
+            @apply text-red-950;
+          }
+        }
+      }
+    }
+
+    .react-select__menu {
+      @apply top-10 m-0 p-0 text-black;
+    }
+  }
+}
+
+
+//Details Banner
+.detailsBanner {
+  .backdrop-img {
+    .lazy-load-image-background {
+      @apply w-full h-full;
+
+      img {
+        @apply w-full h-full object-center object-cover;
+      }
+    }
+  }
+
+  .right {
+    .genres {
+      @apply mb-6 flex items-center gap-2 flex-wrap flex-row;
+
+      .genre {
+        @apply bg-red-600 rounded-md py-1 px-2 text-white whitespace-nowrap;
+
+        @include md {
+          @apply text-base;
+        }
+      }
+    }
+
+    .circleRating {
+      @apply max-w-[70px] bg-gray-900 relative top-8 shrink-0 w-full -translate-y-[1.85rem];
+
+      @include md {
+        @apply max-w-[90px];
+      }
+
+      .CircularProgressbar-text {
+        @apply text-4xl font-bold fill-black -translate-x-6 translate-y-2;
+        fill: white;
+      }
+    }
+
+    .playbtn {
+      @apply flex items-center gap-6 cursor-pointer;
+
+      svg {
+        @apply w-14;
+
+        @include md {
+          @apply w-20;
+        }
+      }
+
+      .text {
+        @apply text-lg transition-all duration-700 ease-in-out;
+      }
+
+      .triangle {
+        @apply stroke-current text-white translate-y-0 transition-all duration-700 ease-in-out;
+        stroke-dasharray: 240;
+        stroke-dashoffset: 480;
+      }
+
+      .circle {
+        @apply stroke-current text-white transition-all duration-700 ease-in-out;
+        stroke-dasharray: 650;
+        stroke-dashoffset: 1300;
+      }
+
+      &:hover {
+        .text {
+          @apply text-red-600;
+        }
+
+        .triangle {
+          @apply stroke-red-600 opacity-100;
+          stroke-dashoffset: 0;
+          animation: trailorPlay 0.7s ease-in-out;
+        }
+
+        .circle {
+          @apply stroke-red-600;
+          stroke-dashoffset: 0;
+        }
+      }
+    }
+
+
+  }
+
+  .detailsBannerSkeleton {
+    .right {
+      .row {
+        @apply w-full h-6 mb-5 mb-12;
+
+        &:nth-child(2) {
+          width: 75%;
+          margin-bottom: 50px;
+        }
+
+        &:nth-child(5) {
+          width: 50%;
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+
+}
+
+//Hero Banner
+.heroBanner {
+  .backdrop-img {
+    .lazy-load-image-background {
+      @apply w-full h-full;
+
+      img {
+        @apply w-full h-full object-cover object-center;
+      }
+    }
+  }
+}
+
+//Cast Section
+.castSection {
+  ::-webkit-scrollbar {
+    @apply block w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-red-700
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-900 rounded-2xl border-2 border-solid border-red-700;
+  }
+
+  .listItem {
+    .profileImg {
+      .lazy-load-image-background {
+        @apply rounded-t-lg overflow-hidden;
+      }
+
+      img {
+        @apply w-full h-full object-cover object-center block;
+      }
+    }
+  }
+}
+
+//Videos Section
+.videosSection {
+
+  ::-webkit-scrollbar {
+    @apply block w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-red-700
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-900 rounded-2xl border-2 border-solid border-red-700;
+  }
+
+  .videos {
+    .videoItem {
+      .videoThumbnail {
+        img {
+          @apply w-full block rounded-xl transition-all duration-700 ease-in-out;
+        }
+
+        svg {
+          @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-14 h-14;
+        }
+
+        .triangle {
+          @apply stroke-current text-white translate-y-0 transition-all duration-700 ease-in-out;
+          stroke-dasharray: 240;
+          stroke-dashoffset: 480;
+        }
+
+        .circle {
+          @apply stroke-current text-white transition-all duration-500 ease-in-out;
+          stroke-dasharray: 650;
+          stroke-dashoffset: 1300;
+        }
+
+        &:hover {
+          img {
+            @apply opacity-50;
+          }
+
+          .triangle {
+            @apply stroke-red-700 opacity-100;
+            stroke-dashoffset: 0;
+            animation: trailorPlay 0.7s ease-in-out;
+          }
+
+          .circle {
+            @apply stroke-red-700;
+            stroke-dashoffset: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.embed-responsive {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
+.embed-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+//animation
+.animation-dash {
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
 }

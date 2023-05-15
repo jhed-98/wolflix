@@ -4,21 +4,16 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
 import dayjs from "dayjs";
 
-import { CrewInterface, MovieInterface } from '../../../interface/type';
+import { CrewInterface } from '../../../interface/type';
 import useFetchMoviesDetails from '../../../hooks/useFetchMoviesDetails';
 import Img from '../../../components/lazyLoadImage';
 import PosterFallback from "../../../assets/no-poster.png";
 import { PlayIcon } from '../../../components/PlayIcon';
-import GenresDetails from '../../../components/GenresDetails';
 import VideoPopup from './VideoPopup';
-import ContentWrapper from '../../../components/ContentWrapper';
 import CircleRating from '../../../components/CircleRating';
-import "../../../assets/scss/details/detailsBanner.scss";
 import Genres from '../../../components/Genres';
 
 const DetailsBanner = ({ video, crew }: any) => {
-    console.log('VVVV', video);
-
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
 
@@ -40,16 +35,19 @@ const DetailsBanner = ({ video, crew }: any) => {
         return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     };
     return (
-        <div className="detailsBanner">
+        <div className="detailsBanner w-full pt-[100px] mb-[50px] bg-gray-950 md:mb-0 md:pt-[120px] md:min-h-[700px]">
             {!loading ? (
                 <>
                     {!!data && (
                         <>
+                            {/* backdrop-img */}
                             <div className="backdrop-img w-full h-full absolute top-0 left-0 opacity-10 overflow-hidden">
                                 <Img src={url.backdrop + data.backdrop_path} />
                             </div>
-                            <div className="opacity-layer"></div>
-                            <ContentWrapper>
+                            {/* opacity-layer */}
+                            <div className="w-full h-64 absolute bottom-0 left-0 bg-opacity-layer"></div>
+                            {/* ContentWrapper */}
+                            <div className='w-full max-w-[1200px] my-0 mx-auto py-0 px-6'>
                                 <div className="content flex relative flex-col gap-6 md:gap-12 md:flex-row">
                                     <div className="left flex-shrink-0">
                                         {data.poster_path ? (
@@ -100,12 +98,14 @@ const DetailsBanner = ({ video, crew }: any) => {
                                                 </span>
                                             </div>
                                         </div>
-
-                                        <div className="overview mb-6">
-                                            <div className="heading text-2xl mb-3">
+                                        {/* overview */}
+                                        <div className="mb-6">
+                                            {/* heading */}
+                                            <div className="text-2xl mb-3">
                                                 Overview
                                             </div>
-                                            <div className="description leading-7 md:pr-24">
+                                            {/* description */}
+                                            <div className="leading-7 md:pr-24">
                                                 {data.overview}
                                             </div>
                                         </div>
@@ -212,15 +212,17 @@ const DetailsBanner = ({ video, crew }: any) => {
                                     videoId={videoId}
                                     setVideoId={setVideoId}
                                 />
-                            </ContentWrapper>
+                            </div>
                         </>
                     )}
                 </>
             ) : (
-                <div className="detailsBannerSkeleton">
-                    <div className='ContentWrapper'>
-                        <div className="left skeleton"></div>
-                        <div className="right">
+                // detailsBannerSkeleton
+                <div className="detailsBannerSkeleton flex relative flex-col gap-6 md:gap-12 md:flex-row">
+                    {/* ContentWrapper */}
+                    <div className='w-full max-w-[1200px] my-0 mx-auto py-0 px-6 flex gap-12'>
+                        <div className="left flex-shrink-0 w-full block rounded-xl aspect-[1/1.5] skeleton md:max-w-[350px]"></div>
+                        <div className="right w-full">
                             <div className="row skeleton"></div>
                             <div className="row skeleton"></div>
                             <div className="row skeleton"></div>

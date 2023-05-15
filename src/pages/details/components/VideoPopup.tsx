@@ -9,27 +9,25 @@ const VideoPopup = ({ show, setShow, videoId, setVideoId }: any) => {
     };
     return (
         <div className={`z-40 flex justify-center items-center  w-full h-full ${show ? "transition duration-300 bg-black bg-opacity-90 overflow-x-hidden overflow-y-auto fixed inset-0" : "opacity-0 invisible hidden"}`}>
-            <div className="relative w-full md:w-3/4 aspect-[16/9] mx-auto max-w-3xl rounded-md overflow-hidden">
+            <div className="relative w-full md:w-3/4 mx-auto max-w-3xl rounded-md overflow-hidden">
                 <div className={`${show ? 'scale-100' : 'scale-0'} transform duration-300 relative flex-auto bg-zinc-900 drop-shadow-md`}>
 
                     <div className="relative h-auto z-50">
                         <div className='embed-responsive mt-10'>
-                            <ReactPlayer
+                            {/* <ReactPlayer
                                 url={`https://www.youtube.com/watch?v=${videoId}`}
                                 controls
                                 playing={true}
+                            /> */}
+                            <iframe
                                 width="853"
                                 height="480"
-                            />
-                            {/* <iframe
-                                width="853"
-                                height="480"
-                                src={`https://www.youtube.com/embed/${videoId}?autoplay=true`}
+                                src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                                 title={setVideoId}
-                            /> */}
+                            />
                         </div>
                         <div onClick={hidePopup} className="cursor-pointer absolute -top-10 right-0 h-10 w-10 rounded-full bg-red-600 bg-opacity-70 flex items-center justify-center">
                             <span className="text-white w-8 flex justify-center" >

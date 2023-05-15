@@ -7,7 +7,6 @@ import { fetchDataFromApi } from '../../utils/api';
 import Spinner from '../../components/Spinner';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import MovieCard from '../../components/MovieCard';
-import "../../assets/scss/search/search.scss"
 import { MovieInterface } from '../../interface/type';
 
 const SearchPage = () => {
@@ -50,20 +49,26 @@ const SearchPage = () => {
     }, [query]);
 
     return (
-        <div className="searchResultsPage">
+        // searchResultsPage
+        <div className="min-h-[700px] pt-28">
             {loading && <Spinner initial={true} />}
             {!loading && (
-                <ContentWrapper>
+                // ContentWrapper 
+                <div className='w-full max-w-[1200px] my-0 mx-auto py-0 px-6'>
+
                     {data?.results?.length > 0 ? (
                         <>
-                            <div className="pageTitle">
+                            {/* pageTitle */}
+                            <div className="text-2xl leading-9 text-white md:mb-0">
                                 {`Search ${data?.total_pages > 1
                                     ? "results"
                                     : "result"
                                     } of '${query}'`}
                             </div>
+                            {/* content */}
                             <InfiniteScroll
-                                className="content"
+                                // className="flex flex-wrap flex-row gap-3 mb-12 md:gap-5"
+                                className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 md:gap-5"
                                 dataLength={data?.results?.length || []}
                                 next={fetchNextPageData}
                                 hasMore={pageNum <= data?.total_pages}
@@ -82,11 +87,12 @@ const SearchPage = () => {
                             </InfiniteScroll>
                         </>
                     ) : (
-                        <span className="resultNotFound">
+                        // resultNotFound
+                        <span className="text-5xl text-gray-200">
                             Sorry, Results not found!
                         </span>
                     )}
-                </ContentWrapper>
+                </div>
             )}
         </div>
     )

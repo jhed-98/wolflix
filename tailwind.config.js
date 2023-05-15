@@ -15,15 +15,23 @@ export default {
         'input-search': "30px 0 0 30px",
         'button-search': "0 30px 30px 0"
       },
+      backgroundColor: {
+        'home-page': '#04152d',
+      },
       animation: {
-        'mobile-menu': 'mobile-menu .3s ease-in-out forwards'
+        'mobile-menu': 'mobile-menu .3s ease-in-out forwards',
+        'rotate': 'rotate 2s linear infinite',
       },
       keyframes: {
         'mobile-menu': {
           '0%': { transform: '-translate-y-[130%]' },
           '100%': { transform: 'translate-y-0' },
-        }
-      }
+        },
+
+        'rotate': {
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
     },
   },
   plugins: [],

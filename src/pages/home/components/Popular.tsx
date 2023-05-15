@@ -14,14 +14,17 @@ const Popular = () => {
     };
 
     return (
-        <div className="carouselSection">
-            <ContentWrapper>
-                <span className="carouselTitle text-2xl md:text-5xl text-white font-normal">What's Popular</span>
+        // carouselSection
+        <div className="relative mb-[70px]">
+            {/* ContentWrapper */}
+            <div className='w-full max-w-[1200px] my-0 mx-auto py-0 px-6 flex items-center justify-between mb-5'>
+                {/* carouselTitle */}
+                <span className="text-xl md:text-3xl text-white font-normal">What's Popular</span>
                 <SwitchTabs
                     data={["Movies", "TV Shows"]}
                     onTabChange={onTabChange}
                 />
-            </ContentWrapper>
+            </div>
             <Carousel
                 data={data?.results}
                 loading={loading}

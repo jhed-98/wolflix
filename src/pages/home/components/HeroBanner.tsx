@@ -37,23 +37,26 @@ const HeroBanner = () => {
     };
 
     return (
-        <div className='heroBanner'>
+        // heroBanner
+        <div className='heroBanner w-full h-[450px] md:h-[700px] bg-black flex items-center relative'>
 
             {!loading && (
                 <div className="backdrop-img w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
                     <Img src={background} alt={alt} />
                 </div>
             )}
-
-            <div className="opacity-layer"></div>
-
-            <div className='contentWrapper'>
-                <div className="heroBannerContent space-y-4">
+            {/* opacity-layer */}
+            <div className="w-full h-64 absolute bottom-0 left-0 bg-opacity-layer"></div>
+            {/* ContentWrapper */}
+            <div className='w-full max-w-[1200px] my-0 mx-auto py-0 px-6'>
+                {/* heroBannerContent */}
+                <div className="flex flex-col items-center text-white text-center relative max-w-[800px] my-0 mx-auto gap-4">
                     <span className="font-bold text-5xl md:text-[90px] mb-3 md:mb-0 ">Welcome.</span>
                     <span className="text-lg font-medium mb-10 md:mb-0 md:text-2xl">
                         Millions of movies, TV shows and people to discover.
                         Explore now.
                     </span>
+                    {/* searchInput */}
                     <div className="flex justify-center items-center w-full">
                         <input
                             type="text"
@@ -73,3 +76,4 @@ const HeroBanner = () => {
 }
 
 export default HeroBanner
+

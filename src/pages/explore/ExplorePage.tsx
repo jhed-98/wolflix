@@ -1,17 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import useFetch from '../../hooks/useFetch';
 import { fetchDataFromApi } from '../../utils/api';
 import Select from "react-select";
 import InfiniteScroll from "react-infinite-scroll-component";
-
-import ContentWrapper from '../../components/ContentWrapper'
 import Spinner from '../../components/Spinner'
 import useFetchGeners from '../../hooks/useFetchGeners'
 import { GenreInterface, MovieInterface } from '../../interface/type'
 import MovieCard from '../../components/MovieCard'
-import "../../assets/scss/explore/explore.scss"
 
 let filters: any = {};
 
@@ -99,10 +95,14 @@ const ExplorePage = () => {
         fetchInitialData();
     };
     return (
-        <div className="explorePage">
-            <ContentWrapper>
-                <div className="pageHeader">
-                    <div className="pageTitle">
+        // explorePage
+        <div className="min-h-[700px] pt-28">
+            {/* ContentWrapper */}
+            <div className='w-full max-w-[1200px] my-0 mx-auto py-0 px-6'>
+                {/* pageHeader */}
+                <div className="flex justify-between mb-6 flex-col md:flex-row">
+                    {/* pageTitle */}
+                    <div className="text-2xl leading-9 text-white md:mb-0">
                         {mediaType === "tv"
                             ? "Explore TV Shows"
                             : "Explore Movies"}
@@ -137,8 +137,10 @@ const ExplorePage = () => {
                 {!loading && (
                     <>
                         {data?.results?.length > 0 ? (
+                            // content
                             <InfiniteScroll
-                                className="content"
+                                // className="flex flex-wrap flex-row gap-3 mb-12 md:gap-5"
+                                className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 md:gap-5"
                                 dataLength={data?.results?.length || []}
                                 next={fetchNextPageData}
                                 hasMore={pageNum <= data?.total_pages}
@@ -156,13 +158,14 @@ const ExplorePage = () => {
                                 })}
                             </InfiniteScroll>
                         ) : (
-                            <span className="resultNotFound">
+                            // resultNotFound
+                            <span className="text-5xl text-gray-200">
                                 Sorry, Results not found!
                             </span>
                         )}
                     </>
                 )}
-            </ContentWrapper>
+            </div>
         </div>
     )
 }
